@@ -1,5 +1,5 @@
 module.exports = function toReadable (number) {
-    let result = '';
+  let result = '';
   let units = ''; //единицы
   let tens = ''; //десятки
   let hundreds = ''; //сотни
@@ -60,9 +60,10 @@ module.exports = function toReadable (number) {
         case 9 : units = 'nine'; break;
       }
     }
-
-
-
- result = `${hundreds} ${tens} ${units}`;
+  if (tens === '') {
+		result = `${hundreds} ${units}`.trim();
+	} else {
+		result = `${hundreds} ${tens} ${units}`.trim();
+	}
   return result;
 }
